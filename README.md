@@ -7,8 +7,10 @@ The blueprint currently creates the following sersors for use in Home Assistant.
 
 | Name | Unit |
 | --- | --- |
-| Cumulative Active Import | kWh|
+| Cumulative Active Import | kWh |
+| Cumulative Active Import | energy |
 | Cumulative_active_export | kWh |
+| Cumulative_active_export | energy |
 | Cumulative_Reactive_Import |kvarh |
 | Cumulative_reactive_export | kvarh |
 | Effect | kW |

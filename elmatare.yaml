@@ -107,7 +107,8 @@ sensor:
   - id: "Cumulative_Reactive_Import"
     unit_of_measurement: kvarh
     accuracy_decimals: 3
-  - name: "Cumulative Reactive Export"
+    internal: true
+- name: "Cumulative Reactive Export"
     id: "cumulative_reactive_export"
     unit_of_measurement: kvarh
     accuracy_decimals: 3

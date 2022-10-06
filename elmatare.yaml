@@ -1,0 +1,175 @@
+esphome:
+  name: elmatare
+  platform: ESP8266
+  board: d1_mini
+  includes:
+    p1reader.h
+
+ota:
+
+wifi:
+  networks:
+  - ssid: !secret wifi_ssid_bie
+    password: !secret wifi_password_bie
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap: {}
+
+captive_portal:
+
+logger:
+  baud_rate: 0
+  level: DEBUG
+
+web_server:
+  port: 80
+
+uart:
+  id: uart_bus
+  tx_pin: TX
+  rx_pin: RX
+  baud_rate: 115200
+
+http_request:
+
+time:
+  - platform: sntp
+    id: my_time
+    on_time:
+      # Every 10 minutes
+      - seconds: 0
+        minutes: /10
+        then:
+          - http_request.post:
+              verify_ssl: false
+              url: !secret webhook_url_bie
+              headers:
+                Content-Type: application/json
+              json: |-
+                root["momentary_active_import"] = id(my_power).state;
+                root["momentary_active_import_p1"] = id(my_power_p1).state;
+                root["momentary_active_import_p2"] = id(my_power_p2).state;
+                root["momentary_active_import_p3"] = id(my_power_p3).state;
+                root["my_power_daily"] = id(my_power_daily).state;
+
+
+sensor:
+- platform: total_daily_energy
+  name: "Total Daily Energy"
+  power_id: my_power
+  id: my_power_daily
+
+- platform: custom
+  lambda: |-
+    auto meter_sensor = new P1Reader(id(uart_bus));
+    App.register_component(meter_sensor);
+    return {
+      meter_sensor->cumulativeActiveImport,
+      meter_sensor->cumulativeActiveExport,
+      meter_sensor->cumulativeReactiveImport,
+      meter_sensor->cumulativeReactiveExport,
+      meter_sensor->momentaryActiveImport,
+      meter_sensor->momentaryActiveExport,
+      meter_sensor->momentaryReactiveImport,
+      meter_sensor->momentaryReactiveExport,
+      meter_sensor->momentaryActiveImportL1,
+      meter_sensor->momentaryActiveExportL1,
+      meter_sensor->momentaryActiveImportL2,
+      meter_sensor->momentaryActiveExportL2,
+      meter_sensor->momentaryActiveImportL3,
+      meter_sensor->momentaryActiveExportL3,
+      meter_sensor->momentaryReactiveImportL1,
+      meter_sensor->momentaryReactiveExportL1,
+      meter_sensor->momentaryReactiveImportL2,
+      meter_sensor->momentaryReactiveExportL2,
+      meter_sensor->momentaryReactiveImportL3,
+      meter_sensor->momentaryReactiveExportL3,
+      meter_sensor->voltageL1,
+      meter_sensor->voltageL2,
+      meter_sensor->voltageL3,
+      meter_sensor->currentL1,
+      meter_sensor->currentL2,
+      meter_sensor->currentL3
+    };
+  sensors:
+  - name: "Cumulative Active Import"
+    unit_of_measurement: kWh
+    accuracy_decimals: 3
+  - id: "cumulative_active_export"
+    unit_of_measurement: kWh
+    accuracy_decimals: 3
+  - id: "Cumulative_Reactive_Import"
+    unit_of_measurement: kvarh
+    accuracy_decimals: 3
+  - id: "cumulative_reactive_export"
+    unit_of_measurement: kvarh
+    accuracy_decimals: 3
+  - name: "Effect"
+    id: my_power
+    unit_of_measurement: kW
+    accuracy_decimals: 3
+  - id: "momentary_active_export"
+    unit_of_measurement: kW
+    accuracy_decimals: 3
+  - id: "momentary_reactive_import"
+    unit_of_measurement: kvar
+    accuracy_decimals: 3
+  - id: "momentary_reactive_export"
+    unit_of_measurement: kvar
+    accuracy_decimals: 3
+  - name: "Effect Phase 1"
+    id: my_power_p1
+    unit_of_measurement: kW
+    accuracy_decimals: 3
+  - id: "momentary_active_export_phase_1"
+    unit_of_measurement: kW
+    accuracy_decimals: 3
+  - name: "Effect Phase 2"
+    id: my_power_p2
+    unit_of_measurement: kW
+    accuracy_decimals: 3
+  - id: "momentary_active_export_phase_2"
+    unit_of_measurement: kW
+    accuracy_decimals: 3
+  - name: "Effect Phase 3"
+    id: my_power_p3
+    unit_of_measurement: kW
+    accuracy_decimals: 3
+  - id: "momentary_active_export_phase_3"
+    unit_of_measurement: kW
+    accuracy_decimals: 3
+  - id: "Momentary_Reactive_Import_Phase_1"
+    unit_of_measurement: kvar
+    accuracy_decimals: 3
+  - id: "momentary_reactive_export_phase_1"
+    unit_of_measurement: kvar
+    accuracy_decimals: 3
+  - id: "Momentary_Reactive_Import_Phase_2"
+    unit_of_measurement: kvar
+    accuracy_decimals: 3
+  - id: "momentary_reactive_export_phase_2"
+    unit_of_measurement: kvar
+    accuracy_decimals: 3
+  - id: "Momentary_Reactive_Import_Phase_3"
+    unit_of_measurement: kvar
+    accuracy_decimals: 3
+  - id: "momentary_reactive_export_phase_3"
+    unit_of_measurement: kvar
+    accuracy_decimals: 3
+  - name: "Voltage Phase 1"
+    unit_of_measurement: V
+    accuracy_decimals: 3
+  - name: "Voltage Phase 2"
+    unit_of_measurement: V
+    accuracy_decimals: 3
+  - name: "Voltage Phase 3"
+    unit_of_measurement: V
+    accuracy_decimals: 3
+  - name: "Current Phase 1"
+    unit_of_measurement: A
+    accuracy_decimals: 3
+  - name: "Current Phase 2"
+    unit_of_measurement: A
+    accuracy_decimals: 3
+  - name: "Current Phase 3"
+    unit_of_measurement: A
+    accuracy_decimals: 3

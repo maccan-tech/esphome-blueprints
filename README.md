@@ -7,29 +7,29 @@ The blueprint currently creates the following sersors for use in Home Assistant.
 
 | Name | Unit |
 | --- | --- |
-| Cumulative Active Import | kWh|
-| Cumulative_active_export | kWh |
-| Cumulative_Reactive_Import |kvarh |
-| Cumulative_reactive_export | kvarh |
+| Cumulative Active Import | kWh |
+| Cumulative Active Export | kWh |
+| Cumulative Reactive Import |kvarh |
+| Cumulative Reactive Export | kvarh |
 | Effect | kW |
-| Momentary_active_export | kW |
-| Momentary_reactive_import |kvar |
-| Momentary_reactive_export | kvar |
+| Momentary Active Export | kW |
+| Momentary Reactive Import |kvar |
+| Momentary Reactive Export | kvar |
 | Effect Phase 1 | kW |
-| Momentary_active_export_phase_1 | kW |
+| Momentary Active Export Phase_1 | kW |
 | Effect Phase 2 | kW |
-| Momentary_active_export_phase_2 | kW |
+| Momentary Active Export Phase_2 | kW |
 | Effect Phase 3 | kW |
-| Momentary_active_export_phase_3 | kW |
-| Momentary_Reactive_Import_Phase_1 |kvar |
-| Momentary_reactive_export_phase_1 |kvar |
-| Momentary_Reactive_Import_Phase_2 |kvar |
-| Momentary_reactive_export_phase_2 |kvar |
-| Momentary_Reactive_Import_Phase_3 |kvar | 
-| Momentary_reactive_export_phase_3 |kvar |
-| Voltage Phase 1 |V |
-| Voltage Phase 2 |V |
+| Momentary Active Export Phase_3 | kW |
+| Momentary Reactive Import_Phase_1 | kvar |
+| Momentary Reactive Export_phase_1 | kvar |
+| Momentary Reactive Import_Phase_2 | kvar |
+| Momentary Reactive Export_phase_2 | kvar |
+| Momentary Reactive Import_Phase_3 | kvar | 
+| Momentary Reactive Export_phase_3 | kvar |
+| Voltage Phase 1 | V |
+| Voltage Phase 2 | V |
 | Voltage Phase 3 | V |
 | Current Phase 1 | A |
 | Current Phase 2 | A |
-| Current Phase 3 |A |
+| Current Phase 3 | A |

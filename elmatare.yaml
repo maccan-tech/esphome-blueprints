@@ -1,3 +1,4 @@
+---
 esphome:
   name: elmatare
   platform: ESP8266
@@ -96,69 +97,102 @@ sensor:
     accuracy_decimals: 3
     state_class: "total_increasing"
     device_class: "energy"
-  - id: "cumulative_active_export"
+  - name: "Cumulative Active Import" 
+    id: "cumulative_active_export"
     unit_of_measurement: kWh
     accuracy_decimals: 3
     state_class: "total_increasing"
     device_class: "energy"
-  - id: "Cumulative_Reactive_Import"
+    internal: true
+  - name: "Cumulative Reactive Import"
+    id: "cumulative_reactive_import"
     unit_of_measurement: kvarh
     accuracy_decimals: 3
-  - id: "cumulative_reactive_export"
+    internal: true
+  - name: "Cumulative Reactive Export"
+    id: "cumulative_reactive_export"
     unit_of_measurement: kvarh
     accuracy_decimals: 3
+    internal: true
   - name: "Effect"
     id: my_power
     unit_of_measurement: kW
     accuracy_decimals: 3
-  - id: "momentary_active_export"
+    internal: false
+  - name: "Momentary Active Export"
+    id: "momentary_active_export"
     unit_of_measurement: kW
     accuracy_decimals: 3
-  - id: "momentary_reactive_import"
+    internal: true
+  - name: "Momentary Reactive Import"
+    id: "momentary_reactive_import"
     unit_of_measurement: kvar
     accuracy_decimals: 3
-  - id: "momentary_reactive_export"
+    internal: true
+  - name: "Momentary Reactive Export"
+    id: "momentary_reactive_export"
     unit_of_measurement: kvar
     accuracy_decimals: 3
+    internal: true
   - name: "Effect Phase 1"
     id: my_power_p1
     unit_of_measurement: kW
     accuracy_decimals: 3
-  - id: "momentary_active_export_phase_1"
+    internal: false
+  - name: "Momentary Active Export Phase 1"
+    id: "momentary_active_export_phase_1"
     unit_of_measurement: kW
     accuracy_decimals: 3
   - name: "Effect Phase 2"
     id: my_power_p2
     unit_of_measurement: kW
     accuracy_decimals: 3
-  - id: "momentary_active_export_phase_2"
+    internal: false
+  - name: "Momentary Active Export Phase 2"
+    id: "momentary_active_export_phase_2"
     unit_of_measurement: kW
     accuracy_decimals: 3
+    internal: true
   - name: "Effect Phase 3"
     id: my_power_p3
     unit_of_measurement: kW
     accuracy_decimals: 3
-  - id: "momentary_active_export_phase_3"
+    internal: false
+ -  name: "Momentary Active Export Phase 3"
+    id: "momentary_active_export_phase_3"
     unit_of_measurement: kW
     accuracy_decimals: 3
-  - id: "Momentary_Reactive_Import_Phase_1"
+    internal: true
+  - name: "Momentary Reactive Import Phase 1"
+    id: "momentary_reactive_import_phase_1"
     unit_of_measurement: kvar
     accuracy_decimals: 3
-  - id: "momentary_reactive_export_phase_1"
+    internal: true
+  - name: "Momentary Reactive Export Phase 1"
+    id: "momentary_reactive_export_phase_1"
     unit_of_measurement: kvar
     accuracy_decimals: 3
-  - id: "Momentary_Reactive_Import_Phase_2"
+    internal: true
+  - name: "Momentary Reactive Import Phase 2"
+    id: "momentary_reactive_import_phase_2"
     unit_of_measurement: kvar
     accuracy_decimals: 3
-  - id: "momentary_reactive_export_phase_2"
+    internal: true
+  - name: "Momentary Reactive Export Phase 2"
+    id: "momentary_reactive_export_phase_2"
     unit_of_measurement: kvar
     accuracy_decimals: 3
-  - id: "Momentary_Reactive_Import_Phase_3"
+    internal: true
+  - name: "Momentary Reactive Import Phase 3"
+    id: "momentary_reactive_import_phase_3"
     unit_of_measurement: kvar
     accuracy_decimals: 3
-  - id: "momentary_reactive_export_phase_3"
+    internal: true
+  - name: "Momentary Reactive Export Phase 3"
+    id: "momentary_reactive_export_phase_3"
     unit_of_measurement: kvar
     accuracy_decimals: 3
+    internal: true
   - name: "Voltage Phase 1"
     unit_of_measurement: V
     accuracy_decimals: 3

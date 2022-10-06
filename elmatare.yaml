@@ -104,11 +104,12 @@ sensor:
     state_class: "total_increasing"
     device_class: "energy"
     internal: true
-  - id: "Cumulative_Reactive_Import"
+  - name: "Cumulative Reactive Import"
+    id: "cumulative_reactive_import"
     unit_of_measurement: kvarh
     accuracy_decimals: 3
     internal: true
-- name: "Cumulative Reactive Export"
+  - name: "Cumulative Reactive Export"
     id: "cumulative_reactive_export"
     unit_of_measurement: kvarh
     accuracy_decimals: 3

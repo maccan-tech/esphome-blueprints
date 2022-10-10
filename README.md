@@ -33,3 +33,6 @@ The blueprint currently creates the following sersors for use in Home Assistant.
 | Current Phase 1 | A |
 | Current Phase 2 | A |
 | Current Phase 3 | A |
+
+## [NibeGw](nibegw.yaml)
+Esphome code for use with Home Assistant integration [Nibe Heat Pump](https://www.home-assistant.io/integrations/nibe_heatpump)

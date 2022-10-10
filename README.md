@@ -36,3 +36,5 @@ The blueprint currently creates the following sersors for use in Home Assistant.
 
 ## [NibeGw](nibegw.yaml)
 Esphome code for use with Home Assistant integration [Nibe Heat Pump](https://www.home-assistant.io/integrations/nibe_heatpump)
+[ESPHome component](https://github.com/elupus/esphome-nibe)
+![Nibe F1245 modbus connection](images/nibe_modbus_f1245.jpg)

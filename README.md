@@ -39,4 +39,5 @@ Esphome code for use with Home Assistant integration [Nibe Heat Pump](https://ww
 [ESPHome component](https://github.com/elupus/esphome-nibe)
 
 Modbus connections on Nibe F1245
+
 ![Nibe F1245 modbus connection](images/nibe_modbus_f1245.jpg)

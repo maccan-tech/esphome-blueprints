@@ -40,10 +40,15 @@ external_components:
       url: https://github.com/elupus/esphome-nibe.git
     components: [ nibegw ]
 
-nibegw:
-  dir_pin: GPIO23
+uart:
   rx_pin: GPIO21
   tx_pin: GPIO22
+  baud_rate: 9600
+
+nibegw:
+  dir_pin:
+    number: GPIO23
+
   udp:
     # The target address(s) to send data to. May be a multicast address.
     target:
